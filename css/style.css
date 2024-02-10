@@ -1,0 +1,29 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #172030;
+    overflow: hidden;
+}
+
+li, nav img {
+    float: left;
+}
+
+li a {
+    color: white;
+    padding: 20%;
+    text-decoration: none;
+    display: block;
+}
+
+li a:hover {
+    background-color: #c5f82a;
+}
+
+footer {
+    background-color: #172030;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
