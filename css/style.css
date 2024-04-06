@@ -1,29 +1,349 @@
-ul {
-    list-style-type: none;
+*{
     margin: 0;
     padding: 0;
-    background-color: #172030;
-    overflow: hidden;
 }
 
-li, nav img {
-    float: left;
+body{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-li a {
-    color: white;
-    padding: 20%;
+.slider{
+    width: 100%;
+    height: 80vh;
+    aspect-ratio: 16/9;
+    background-color: black;
+    position: relative;
+}
+
+.slider-background{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+.slider-content{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+h1{
+    color: aliceblue;
+    font-size: 5rem; /* gère la taille du H1 */
+}
+
+h2{
+    font-size: 3rem;
+    margin-bottom: 100px;
+}
+
+p{
+    font-size: 1.5rem;
+    line-height:1.5em;
+}
+
+.section{
+    padding: 100px 0;
+}
+
+.boxed{
+    max-width: 1280px;
+    margin-inline: auto;
+}
+
+.flex{
+    display: flex;
+}
+
+.dark{
+    background:black;
+    color: #fff;
+    /* On peut aussi mettre
+    background:linear-gradient(rgba(0,0,0,0.6),(rgba(0,0,0,0.6)),url(selection de notre image);
+    background-size: cover;
+    background-position-y: 50%; */
+}
+
+.w40{
+    width: 40%;
+}
+
+.w60{
+    width: 60%;
+}
+
+.w25{
+    width: 25%;
+}
+
+.w32{
+    width:32%;
+}
+
+.space-between{
+    justify-content: space-between; /*Permet lorsque l'on a une div flex de séparer les éléments au maximum */
+}
+
+.gap20{
+    gap: 20px;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.skill{
+    background: antiquewhite;
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.skill img{
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+
+.skill h3{
+    margin-top: 10px;
+}
+
+.realisation{
+    height: auto;
+    aspect-ratio: 1/1;
+    position: relative;
+}
+.realisation h3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% -50%);
+    font-size: 2rem;
+    width:max-content;
+    opacity: 0;
+    transition: .4s ease;
+}
+
+.realisation a{
+    display: block;
+    width: 100%;
+    height: 100%;
     text-decoration: none;
+    color: #fff;
+}
+
+.realisation img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(40%);
+    transition:.4s ease;
+}
+
+.realisation:hover img{
+    filter: brightness(60%);
+}
+
+.realisation:hover h3{
+    opacity: 1;
+}
+
+.icon{
+    display: block;
+    font-size: 40px !important;
+}
+
+.label{
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.value{
+    display: block;
+    font-size: 1.2rem;
+}
+
+.contact{
+    border: 2px dashed #fff;
+    border-radius: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.aligncenter{
+    align-items: center;
+}
+
+header{
+    position: fixed; /* fixed pour que le menu reste en haut de page */
+    top:0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 999; /* 999 pour être sûr qu'il passe bien au dessus de tout */
+    padding-block: 10px;
+    box-shadow: 1px 1px 25px rgba(0,0,0,0.07);
+}
+
+.header-logo{
     display: block;
 }
 
-li a:hover {
-    background-color: #c5f82a;
+.header-logo img{
+    width: 60%;
 }
 
-footer {
-    background-color: #172030;
-    text-align: center;
-    color: white;
+.header-menu{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.header-menu li a{
+    text-decoration: none;
+    color: black;
     padding: 10px;
+    display: block;
+    box-sizing: border-box;
+    transition: .2s ease;
+}
+
+.header-menu li a:hover{
+    background-color: #f2f2f2;
+}
+
+/*Pour mettre en valeur le dernier élément du menu */
+.header-menu li:last-child a{
+    background-color: red; /*-> le fond de contact en rouge*/
+    color: #FFF; /*-> contact en blanc */
+}
+
+.header-menu-mobile{
+    display: none;
+}
+
+@media(max-width:810px){
+
+    header{
+        height: 60px !important;
+    }
+
+    .header-menu-mobile{
+        display: block;
+        border: 0px;
+        background-color: #FFF;
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .header-menu-mobile-exit{
+        display: block;
+        border: 0px;
+        background-color: #FFF;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .header-logo{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .header-menu{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* Si on utilise du padding pour le menu responsive et qu'il y aura du blanc entre les textes, on ne va pas cliquer sur la bonne section alors que si on utilise le gap, ça n'existe pas donc on ne peut pas se tromper */
+        gap: 30px;
+        display: none;
+    }
+
+    .active{
+        display: flex;
+    }
+
+    .header-menu li:last-child a{
+        margin-top: 10px;
+    }
+
+    h2{
+        font-size: 1.75rem;
+        margin-bottom: 30px;
+    }
+
+    .slider{
+        height: 60vh; /* Ici On réduit la hauteur quand on est sur mobile pour plus de cohérence*/
+    }
+
+    .slider-content{
+        width: 90%;
+    }
+
+    .slider-content p{
+        margin-top: 20px;
+        font-size: 1.5rem;
+        /* text-wrap: balance; à utiliser si on a pas mal de texte pour la présentation. ça permet de mettre le texte à la ligne de manière stylisée*/
+    }
+
+    h1{
+        font-size:2rem;
+    }
+
+    p{
+        font-size: 1rem; /* Taille parfaite selon google pour que les utilisateurs soient à l'aise pour lire. Bon pour référencement*/
+        text-wrap: balance;
+    }
+
+    .toColumn{
+        flex-direction: column;
+    }
+
+    .mCenter{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .wm100{
+        width: 100% !important;
+    }
+
+    .section{
+        padding: 50px 0;
+    }
+
+    .boxed{
+        max-width: 90%;
+    }
+
+    .wm47{
+        width: 47%;
+    }
+
+    .mgap20{
+        gap: 20px;
+    }
 }

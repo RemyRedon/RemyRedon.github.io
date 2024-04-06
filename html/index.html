@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body>
+    <header>
+        <div class="boxed">
+            <div class="flex aligncenter space-between">
+                <button onclick="openMenu()" class="header-menu-mobile">
+                    <span class="material-icons">menu</span>
+                </button>
+                <a href="/" class="header-logo">
+                    <img src=""> <!--Mettre l'image du logo ici-->
+                </a>
+                <ul class="header-menu">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/">A propos</a></li>
+                    <li><a href="/">Compétences</a></li>
+                    <li><a href="/">Réalisations</a></li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+                <button onclick="openMenu()" class="header-menu-mobile-exit">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="slider">
+        <img src="" class="slider-background" alt="">
+        <div class="slider-content">
+            <h1>Rémy REDON</h1>
+            <p>Je suis développeur Full-Stack spé React</p>
+        </div>
+        
+    </div>
+
+    <div class="section">
+        <div class="boxed">
+            <div class="flex toColumn mCenter">
+                <div class="w40 wm100"> /*wm100 -> Width sur Mobile à 100%*/
+                    <h2>Qui suis-je ?</h2>
+                </div>
+                <div class="w60 wm100">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero necessitatibus voluptatem rem iusto magni nulla earum distinctio reprehenderit reiciendis quisquam excepturi, quae in labore laudantium totam quas. Repudiandae, iste consequatur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section dark">
+        <div class="boxed text-center">
+            <h2>Compétences</h2>
+            <div class="flex toColumn gap20">
+                <div class="w25 wm100 skill">
+                    <img src="" alt=""> // logo html
+                    <h3>HTML</h3>
+                </div>
+                <div class="w25 wm100 skill">
+                    <img src="" alt=""> // logo css
+                    <h3>CSS</h3>
+                </div>
+                <div class="w25 wm100 skill">
+                    <img src="" alt=""> // logo js
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="w25 wm100 skill">
+                    <img src="" alt=""> // logo react
+                    <h3>React</h3>
+                </div>
+                <div class="w25 wm100 skill">
+                    <img src="" alt=""> // logo php
+                    <h3>PHP</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="boxed text-center">
+            <h2>Mes Réalisations</h2>
+            <div class="flex wrap gap20 space-between">
+                <div class="w32 wm50 realisation">
+                    <a href=""> <!-- Mettre le lien vers le projet-->
+                        <img src=""> <!-- mettre image pour le fond-->
+                        <h3>Projet 1</h3>
+                    </a>
+                </div>
+                <div class="w32 wm47 realisation">
+                    <a href="">
+                        <img src="">
+                        <h3>Projet 2</h3>
+                    </a>
+                </div>
+                <div class="w32 wm47 realisation">
+                    <a href="">
+                        <img src="">
+                        <h3>Projet 3</h3>
+                    </a>
+                </div><div class="w32 wm47 realisation">
+                    <a href="">
+                        <img src="">
+                        <h3>Projet 4</h3>
+                    </a>
+                </div><div class="w32 wm47 realisation">
+                    <a href="">
+                        <img src="">
+                        <h3>Projet 5</h3>
+                    </a>
+                </div><div class="w32 wm47 realisation">
+                    <a href="">
+                        <img src="">
+                        <h3>Projet 6</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section dark">
+        <div class="boxed text-center">
+            <h2>Contactez-moi</h2>
+            <div class="flex toColumn space-between mgap20">
+                <div class="w32 wm100 contact">
+                    <span class="material-icons icon">mail</span>
+                    <span class="label">mail</span>
+                    <span class="value">test@test.fr</span>
+                </div>
+                <div class="w32 wm100 contact">
+                    <span class="material-icons icon">mail</span>
+                    <span class="label">mail</span>
+                    <span class="value">test@test.fr</span>
+                </div>
+                <div class="w32 wm100 contact">
+                    <span class="material-icons icon">mail</span>
+                    <span class="label">mail</span>
+                    <span class="value">test@test.fr</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/JS/app.js"></script>
+</html>
