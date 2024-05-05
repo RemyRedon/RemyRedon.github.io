@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -11,7 +12,7 @@ body{
     width: 100%;
     height: 80vh;
     aspect-ratio: 16/9;
-    background-color: black;
+    background-color: #0C0E14;
     position: relative;
 }
 
@@ -35,9 +36,61 @@ h1{
     font-size: 5rem; /* gère la taille du H1 */
 }
 
+.wave {
+    position: absolute; 
+    font-size: 7em;
+    transform: translate(-50%, -50%);
+    margin-left: 4rem;
+    margin-top: 3rem;
+    margin-bottom: auto;
+    padding-bottom: 2rem;
+}
+
+.wave:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px #725C22;
+}
+
+.wave:nth-child(2) {
+    color: #725C22;
+    animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%,
+    100% {
+    clip-path: polygon(
+        0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%
+    );
+    }
+
+    50% {
+    clip-path: polygon(
+        0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%
+    );
+    }
+}
+
 h2{
     font-size: 3rem;
     margin-bottom: 100px;
+    color: #725C22;
 }
 
 p{
@@ -47,6 +100,7 @@ p{
 
 .section{
     padding: 100px 0;
+    background: #BCC2C2;
 }
 
 .boxed{
@@ -59,8 +113,8 @@ p{
 }
 
 .dark{
-    background:black;
-    color: #fff;
+    background:#0C0E14;
+    color:  #725C22;
     /* On peut aussi mettre
     background:linear-gradient(rgba(0,0,0,0.6),(rgba(0,0,0,0.6)),url(selection de notre image);
     background-size: cover;
@@ -83,6 +137,10 @@ p{
     width:32%;
 }
 
+.center {
+    justify-content: center;
+}
+
 .space-between{
     justify-content: space-between; /*Permet lorsque l'on a une div flex de séparer les éléments au maximum */
 }
@@ -99,8 +157,13 @@ p{
     text-align: center;
 }
 
+.pic{
+    position: relative;
+    left: -60%;
+}
+
 .skill{
-    background: antiquewhite;
+    background: #BCC2C2;
     border-radius: 15px;
     padding: 20px;
     box-sizing: border-box;
@@ -124,8 +187,8 @@ p{
 }
 .realisation h3{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 45%;
+    left: 35%;
     transform: translate(-50% -50%);
     font-size: 2rem;
     width:max-content;
@@ -138,7 +201,7 @@ p{
     width: 100%;
     height: 100%;
     text-decoration: none;
-    color: #fff;
+    color: #FFF;
 }
 
 .realisation img{
@@ -176,11 +239,17 @@ p{
 }
 
 .contact{
-    border: 2px dashed #fff;
+    border: 2px dashed #725C22;
     border-radius: 15px;
     padding: 15px;
     box-sizing: border-box;
 }
+
+.social-media a {
+    text-decoration: none;
+    color: #725C22;
+}
+
 .aligncenter{
     align-items: center;
 }
@@ -190,7 +259,7 @@ header{
     top:0;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: #0C0E14;
     z-index: 999; /* 999 pour être sûr qu'il passe bien au dessus de tout */
     padding-block: 10px;
     box-shadow: 1px 1px 25px rgba(0,0,0,0.07);
@@ -212,7 +281,7 @@ header{
 
 .header-menu li a{
     text-decoration: none;
-    color: black;
+    color: #725C22;
     padding: 10px;
     display: block;
     box-sizing: border-box;
@@ -220,18 +289,23 @@ header{
 }
 
 .header-menu li a:hover{
-    background-color: #f2f2f2;
+    text-decoration: underline 2px;
+    text-decoration-color: #BCC2C2;
+    text-underline-offset: 8px;
+    
 }
 
-/*Pour mettre en valeur le dernier élément du menu */
+/*Pour mettre en valeur le dernier élément du menu 
 .header-menu li:last-child a{
-    background-color: red; /*-> le fond de contact en rouge*/
-    color: #FFF; /*-> contact en blanc */
-}
+    background-color: red; -> le fond de contact en rouge
+    color: #FFF; -> contact en blanc 
+}*/
 
 .header-menu-mobile{
     display: none;
 }
+
+
 
 @media(max-width:810px){
 
@@ -242,13 +316,14 @@ header{
     .header-menu-mobile{
         display: block;
         border: 0px;
-        background-color: #FFF;
+        color: #FFF;
         position: absolute;
         left: 5%;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 991;
     }
-
+/* Si on veut que la croix pour fermer le menu se trouve à droite
     .header-menu-mobile-exit{
         display: block;
         border: 0px;
@@ -258,12 +333,13 @@ header{
         top: 50%;
         transform: translateY(-50%);
     }
-
+*/
     .header-logo{
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        /* Si on ajoute un z-index:991; le logo restera apparent lorsque le menu sera ouvert */
     }
 
     .header-menu{
@@ -315,6 +391,11 @@ header{
     p{
         font-size: 1rem; /* Taille parfaite selon google pour que les utilisateurs soient à l'aise pour lire. Bon pour référencement*/
         text-wrap: balance;
+    }
+
+    .pic{
+        position: relative;
+        left:0%;
     }
 
     .toColumn{

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     
 </head>
 <body>
@@ -20,64 +20,66 @@
                 </a>
                 <ul class="header-menu">
                     <li><a href="/">Accueil</a></li>
-                    <li><a href="/">A propos</a></li>
-                    <li><a href="/">Compétences</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#comp">Compétences</a></li>
                     <li><a href="/">Réalisations</a></li>
                     <li><a href="/">Contact</a></li>
                 </ul>
+                <!-- Si on veut que la fermeture du menu se trouve à droite
                 <button onclick="openMenu()" class="header-menu-mobile-exit">
                     <span class="material-icons">close</span>
-                </button>
+                </button> -->
             </div>
         </div>
     </header>
 
     <div class="slider">
-        <img src="" class="slider-background" alt="">
+        <img src="../asset/background.jpg" class="slider-background" alt="">
         <div class="slider-content">
-            <h1>Rémy REDON</h1>
-            <p>Je suis développeur Full-Stack spé React</p>
+            <h1 class="wave">RémyRedon</h1>
+            <h1 class="wave child2">RémyRedon</h1>
         </div>
         
     </div>
 
-    <div class="section">
+    <div class="section" id="about">
         <div class="boxed">
             <div class="flex toColumn mCenter">
-                <div class="w40 wm100"> /*wm100 -> Width sur Mobile à 100%*/
+                <div class="w40 wm100"> <!--wm100 -> Width sur Mobile à 100%-->
                     <h2>Qui suis-je ?</h2>
                 </div>
                 <div class="w60 wm100">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero necessitatibus voluptatem rem iusto magni nulla earum distinctio reprehenderit reiciendis quisquam excepturi, quae in labore laudantium totam quas. Repudiandae, iste consequatur.
+                        Je suis développeur web full-stack spé React situé à Bordeaux, France. Touche à tout. Je suis souriant, accueillant, aimant l'échange avec les personnes. Toujours à l'écoute et désireux d'apprendre tous les jours. Je transforme vos idées en merveilleux projets.
                     </p>
+                    <img class="pic" src="../asset/profil.jpg" alt="profil"> <!--Add photo profil-->
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="section dark">
+    <div class="section dark" id="comp">
         <div class="boxed text-center">
             <h2>Compétences</h2>
             <div class="flex toColumn gap20">
                 <div class="w25 wm100 skill">
-                    <img src="" alt=""> // logo html
+                    <img src="../asset/logo/html-logo.png" alt="logo html">
                     <h3>HTML</h3>
                 </div>
                 <div class="w25 wm100 skill">
-                    <img src="" alt=""> // logo css
+                    <img src="../asset/logo/css-logo.png" alt="logo css">
                     <h3>CSS</h3>
                 </div>
                 <div class="w25 wm100 skill">
-                    <img src="" alt=""> // logo js
+                    <img src="../asset/logo/js-logo.png" alt="logo js">
                     <h3>JavaScript</h3>
                 </div>
                 <div class="w25 wm100 skill">
-                    <img src="" alt=""> // logo react
+                    <img src="../asset/logo/react-logo.png" alt="logo react">
                     <h3>React</h3>
                 </div>
                 <div class="w25 wm100 skill">
-                    <img src="" alt=""> // logo php
+                    <img src="../asset/logo/php-logo.png" alt="logo php">
                     <h3>PHP</h3>
                 </div>
             </div>
@@ -88,36 +90,36 @@
         <div class="boxed text-center">
             <h2>Mes Réalisations</h2>
             <div class="flex wrap gap20 space-between">
-                <div class="w32 wm50 realisation">
+                <div class="w32 wm47 realisation">
                     <a href=""> <!-- Mettre le lien vers le projet-->
-                        <img src=""> <!-- mettre image pour le fond-->
+                        <img src="../asset/fleg.jpg"> <!-- mettre image pour le fond-->
                         <h3>Projet 1</h3>
                     </a>
                 </div>
                 <div class="w32 wm47 realisation">
                     <a href="">
-                        <img src="">
+                        <img src="../asset/fleg.jpg">
                         <h3>Projet 2</h3>
                     </a>
                 </div>
                 <div class="w32 wm47 realisation">
                     <a href="">
-                        <img src="">
+                        <img src="../asset/fleg.jpg">
                         <h3>Projet 3</h3>
                     </a>
                 </div><div class="w32 wm47 realisation">
                     <a href="">
-                        <img src="">
+                        <img src="../asset/fleg.jpg">
                         <h3>Projet 4</h3>
                     </a>
                 </div><div class="w32 wm47 realisation">
                     <a href="">
-                        <img src="">
+                        <img src="../asset/fleg.jpg">
                         <h3>Projet 5</h3>
                     </a>
                 </div><div class="w32 wm47 realisation">
                     <a href="">
-                        <img src="">
+                        <img src="../asset/fleg.jpg">
                         <h3>Projet 6</h3>
                     </a>
                 </div>
@@ -128,21 +130,15 @@
     <div class="section dark">
         <div class="boxed text-center">
             <h2>Contactez-moi</h2>
-            <div class="flex toColumn space-between mgap20">
+            <div class="flex toColumn space-between mgap20 social-media">
                 <div class="w32 wm100 contact">
                     <span class="material-icons icon">mail</span>
                     <span class="label">mail</span>
-                    <span class="value">test@test.fr</span>
+                    <a class="value link" href="mailto:remy.redon@hotmail.fr">remy.redon@hotmail.fr</a>
                 </div>
                 <div class="w32 wm100 contact">
-                    <span class="material-icons icon">mail</span>
-                    <span class="label">mail</span>
-                    <span class="value">test@test.fr</span>
-                </div>
-                <div class="w32 wm100 contact">
-                    <span class="material-icons icon">mail</span>
-                    <span class="label">mail</span>
-                    <span class="value">test@test.fr</span>
+                    <img src="../asset/logo/In-Blue-34.png" alt="logo linkedin">
+                    <a class="label link" href="https://www.linkedin.com/in/r%C3%A9my-redon-9a56411b3/">Linkedin</a>
                 </div>
             </div>
         </div>
