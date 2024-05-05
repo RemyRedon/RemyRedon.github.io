@@ -19,11 +19,11 @@
                     <img src=""> <!--Mettre l'image du logo ici-->
                 </a>
                 <ul class="header-menu">
-                    <li><a href="/">Accueil</a></li>
+                    <li><a href="#home">Accueil</a></li>
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#comp">Compétences</a></li>
-                    <li><a href="/">Réalisations</a></li>
-                    <li><a href="/">Contact</a></li>
+                    <li><a href="#real">Réalisations</a></li>
+                    <li><a href="#joinMe">Contact</a></li>
                 </ul>
                 <!-- Si on veut que la fermeture du menu se trouve à droite
                 <button onclick="openMenu()" class="header-menu-mobile-exit">
@@ -33,7 +33,7 @@
         </div>
     </header>
 
-    <div class="slider">
+    <div class="slider" id="home">
         <img src="../asset/background.jpg" class="slider-background" alt="">
         <div class="slider-content">
             <h1 class="wave">RémyRedon</h1>
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="real">
         <div class="boxed text-center">
             <h2>Mes Réalisations</h2>
             <div class="flex wrap gap20 space-between">
@@ -127,7 +127,7 @@
         </div>
     </div>
 
-    <div class="section dark">
+    <div class="section dark" id="joinMe">
         <div class="boxed text-center">
             <h2>Contactez-moi</h2>
             <div class="flex toColumn space-between mgap20 social-media">
