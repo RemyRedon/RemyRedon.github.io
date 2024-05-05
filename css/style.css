@@ -245,6 +245,10 @@ p{
     box-sizing: border-box;
 }
 
+.link:hover{
+    color: #BCC2C2;
+}
+
 .social-media a {
     text-decoration: none;
     color: #725C22;
