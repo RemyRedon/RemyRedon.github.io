@@ -303,7 +303,7 @@ header{
     padding: 10px;
     display: block;
     box-sizing: border-box;
-    transition: .2s ease;
+    font-size: 1.35em;
 }
 
 .header-menu li a:hover{
@@ -312,12 +312,6 @@ header{
     text-underline-offset: 8px;
     
 }
-
-/*Pour mettre en valeur le dernier élément du menu 
-.header-menu li:last-child a{
-    background-color: red; -> le fond de contact en rouge
-    color: #FFF; -> contact en blanc 
-}*/
 
 .header-menu-mobile{
     display: none;
