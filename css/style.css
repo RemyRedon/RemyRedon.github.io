@@ -145,6 +145,10 @@ p{
     justify-content: space-between; /*Permet lorsque l'on a une div flex de séparer les éléments au maximum */
 }
 
+.space-evenly{
+    justify-content: space-evenly;
+}
+
 .gap20{
     gap: 20px;
 }
@@ -178,6 +182,11 @@ p{
 
 .skill h3{
     margin-top: 10px;
+}
+
+h3{
+    margin: 1rem;
+    font-size: 2rem;
 }
 
 .realisation{
