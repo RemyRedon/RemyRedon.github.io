@@ -254,6 +254,11 @@ p{
     color: #725C22;
 }
 
+.linkedin {
+    width: 3em;
+    height: 3em;
+}
+
 .aligncenter{
     align-items: center;
 }
