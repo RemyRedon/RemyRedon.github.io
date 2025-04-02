@@ -1,0 +1,62 @@
+// ContactInfoItem.scss
+.contact-info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 180px;
+  margin: 0 auto;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  @media (min-width: 640px) {
+    flex: 1;
+    min-width: 160px;
+  }
+}
+
+.icon-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.icon-svg {
+  width: 24px;
+  height: 24px;
+  color: var(--text-primary);
+}
+
+.icon {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.info-text {
+  h3 {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+}

@@ -1,0 +1,364 @@
+// Variables
+$card-bg-light: white;
+$card-bg-dark: #2a2a2a;
+$tag-bg-light: #f0f0f0;
+$tag-bg-dark: #3a3a3a;
+$tag-text-light: #555;
+$tag-text-dark: #ddd;
+$transition-duration: 0.3s;
+$accent-color: #0077b6;
+$accent-hover-color: #0096c7;
+$gradient-colors: linear-gradient(90deg, #4361ee, #3a86ff, #8a5cf5, #d65db1);
+
+.projects-container {
+  max-width: 1300px; // Augmenté pour des cartes plus larges
+  margin: 0 auto;
+  padding: 6rem 1rem 3rem; // Augmenté le padding-top pour créer plus d'espace avec la navbar
+  transition: background-color $transition-duration, color $transition-duration;
+
+  .projects-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: white; // Ajout de la couleur blanche pour le titre
+    margin-top: 2rem; // Espacement supplémentaire depuis le haut
+  }
+
+  .projects-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9; // Légèrement augmenté l'opacité pour une meilleure visibilité
+    color: white; // Ajout de la couleur blanche pour le sous-titre
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .tag-button {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all $transition-duration ease;
+    overflow: hidden;
+    z-index: 1;
+
+    // Bordure avec dégradé
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 4px;
+      padding: 1px;
+      background: $gradient-colors;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: -1;
+    }
+
+    // Fond de dégradé avec animation de chargement
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $gradient-colors;
+      z-index: -2;
+      transform: translateX(-100%); // Commence hors de l'élément
+      transition: transform 0.4s ease; // Animation de déplacement
+    }
+
+    &:hover::after {
+      transform: translateX(0); // Se déplace pour remplir tout le bouton
+    }
+
+    &.active::after {
+      transform: translateX(0); // Remplir complètement quand actif
+    }
+  }
+
+  // Modifié pour avoir 2 projets par ligne mais plus larges
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem; // Augmenté l'espace entre les cartes
+  }
+
+  .project-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform $transition-duration ease,
+      box-shadow $transition-duration ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $card-bg-light;
+    position: relative;
+
+    // Bordure avec dégradé permanent (pas seulement au survol)
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 8px;
+      padding: 2px;
+      background: $gradient-colors;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+      .card-image {
+        transform: scale(1.05);
+        // L'image est déjà en couleur, pas besoin de restaurer
+      }
+
+      .card-overlay {
+        opacity: 1;
+      }
+
+      .card-content {
+        h3,
+        p {
+          filter: grayscale(0%); // Restaurer les couleurs au survol
+        }
+
+        .card-tag {
+          filter: grayscale(0%); // Restaurer les couleurs au survol
+
+          &:hover {
+            background: $gradient-colors;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .card-image-container {
+      position: relative;
+      overflow: hidden;
+      height: 250px;
+
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        // Supprimé le filter grayscale pour garder l'image en couleur
+      }
+
+      .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity $transition-duration ease;
+        padding: 1rem;
+        text-align: center;
+
+        // Nouveau titre et description en blanc sur l'overlay
+        .card-overlay-text {
+          color: white;
+          margin-bottom: 1rem;
+
+          h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+          }
+
+          p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            opacity: 0.9;
+          }
+        }
+
+        .card-links {
+          display: flex;
+          gap: 1.5rem;
+          margin-top: 0.5rem;
+
+          a {
+            color: white;
+            font-size: 1.5rem;
+            background: $gradient-colors; // Utiliser le dégradé au lieu de la couleur solide
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform $transition-duration ease,
+              box-shadow $transition-duration ease;
+            z-index: 2;
+            position: relative;
+            overflow: hidden;
+
+            &:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+              &:after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                right: -50%;
+                bottom: -50%;
+                background: rgba(255, 255, 255, 0.2);
+                transform: rotate(30deg) translateY(150%);
+                transition: transform 0.6s ease;
+              }
+
+              &:hover:after {
+                transform: rotate(30deg) translateY(-150%);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .card-content {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 0;
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        filter: grayscale(100%); // Texte en niveaux de gris par défaut
+        transition: filter 0.7s ease;
+      }
+
+      p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+        flex-grow: 1;
+        filter: grayscale(100%); // Texte en niveaux de gris par défaut
+        transition: filter 0.7s ease;
+        // Limiter à 3 lignes avec ellipsis pour gagner de l'espace
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: auto;
+
+        .card-tag {
+          padding: 0.3rem 0.6rem;
+          font-size: 0.75rem;
+          border-radius: 4px;
+          background-color: $tag-bg-light;
+          color: $tag-text-light;
+          transition: background-color $transition-duration,
+            color $transition-duration, filter 0.7s ease;
+          filter: grayscale(100%); // Tags en niveaux de gris par défaut
+        }
+      }
+    }
+  }
+
+  &.dark-mode {
+    .project-card {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      background-color: $card-bg-dark;
+
+      .card-tags {
+        .card-tag {
+          background-color: $tag-bg-dark;
+          color: $tag-text-dark;
+
+          &:hover {
+            background: $gradient-colors;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media Queries - Ajustés pour les cartes plus larges
+@media (max-width: 1100px) {
+  .projects-container {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .projects-title {
+      font-size: 2rem;
+    }
+
+    .tags-container {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-container {
+    .tag-button {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+  }
+}

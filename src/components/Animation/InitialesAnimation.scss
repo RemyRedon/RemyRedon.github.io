@@ -1,0 +1,134 @@
+.animation-container {
+  position: fixed;
+  inset: 0;
+  background-color: black;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 1s ease;
+}
+
+.animation-container.exit-animation {
+  transform: translateY(-100%);
+}
+
+.welcome-container {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.initiales-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+
+  &.animate {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  &.exit {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 0;
+    animation: none;
+  }
+}
+
+.initiales-text {
+  font-size: 6rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #1565c0, #692627);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+.triangle-container {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+
+  &.animate {
+    animation: rotate 4s linear infinite;
+  }
+
+  &.exit {
+    transform: scale(1.5);
+    opacity: 0;
+    animation: none;
+  }
+}
+
+.click-text {
+  position: absolute;
+  bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  animation: bounce 1s infinite;
+  transition: opacity 0.5s ease-in-out;
+
+  &.exit {
+    opacity: 0;
+    animation: none;
+  }
+}
+
+.welcome-text {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  animation: fadeOut 1s ease forwards;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
