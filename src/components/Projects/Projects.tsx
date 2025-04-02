@@ -186,7 +186,7 @@ function Projects(): JSX.Element {
                     rel="noopener noreferrer"
                     aria-label="Voir le site"
                   >
-                    <FiExternalLink />
+                    {FiExternalLink({})}
                   </a>
                   <a
                     href={project.githubLink}
@@ -194,7 +194,7 @@ function Projects(): JSX.Element {
                     rel="noopener noreferrer"
                     aria-label="Voir le code source"
                   >
-                    <FiGithub />
+                    {FiGithub({})}
                   </a>
                 </div>
               </div>
