@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "tsc --noEmit && eslint src/**/*.{js,jsx,ts,tsx} --cache --max-warnings=0",
     "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx} --fix",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "pnpm build",
+    "deploy": "npx gh-pages -d dist"
   },
   "dependencies": {
     "framer-motion": "^12.5.0",

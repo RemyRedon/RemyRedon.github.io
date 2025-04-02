@@ -9,5 +9,9 @@ export default defineConfig({
       scss: {},
     },
   },
-  base: '/RemyRedon.github.io/',
+  base: './',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  },
 });
